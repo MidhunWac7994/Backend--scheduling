@@ -25,12 +25,12 @@ exports.createEvent = async (req, res) => {
   exports.getEvents = async (req, res) => {
     console.log("getEvents called");
     
-    const { roomId } = req.query; // Get roomId from query parameters
+    const { roomId } = req.query; 
   
     try {
       const events = roomId
-        ? await Event.find({ roomId })  // Filter events by roomId if provided
-        : await Event.find();  // Otherwise, fetch all events
+        ? await Event.find({ roomId }) 
+        : await Event.find();  
   
       res.status(200).json(events);
       console.log("Events fetched:", events);
@@ -40,9 +40,6 @@ exports.createEvent = async (req, res) => {
     }
   };
   
-
-
-// Update Event
 exports.updateEvent = async (req, res) => {
     try {
         const { title, start, end } = req.body;
@@ -62,7 +59,7 @@ exports.updateEvent = async (req, res) => {
     }
 };
 
-// Delete Event
+
 exports.deleteEvent = async (req, res) => {
     try {
         const eventId = req.params.id;

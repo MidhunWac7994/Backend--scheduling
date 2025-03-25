@@ -15,7 +15,7 @@ console.log("eventRoutes:", eventRoutes);
 
 // Middleware
 app.use(cors({
-    origin: "http://localhost:5173", // Change to your frontend URL
+    origin: "react-app-scheduling.vercel.app", // Change to your frontend URL
     credentials: true
 }));
 app.use(express.json());
