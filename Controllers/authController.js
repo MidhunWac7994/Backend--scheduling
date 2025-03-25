@@ -1,6 +1,8 @@
 const User = require('../models/User');
 
 exports.googleLogin = async (req, res) => {
+    console.log("Google login called");
+    
     try {
         const { _id, name, email, picture } = req.body;
 

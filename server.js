@@ -45,7 +45,7 @@ app.use('/api/events', eventRoutes);
 
 // Handle Undefined Routes
 app.use((req, res) => {
-    res.status(404).json({ message: "Route not found" });
+    res.status(404).json({ message: "Route not hvhgfcvyutg found" });
 });
 
 // Error Handling Middleware
