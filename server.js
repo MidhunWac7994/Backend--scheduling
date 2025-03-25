@@ -13,11 +13,26 @@ const app = express();
 console.log("authRoutes:", authRoutes);
 console.log("eventRoutes:", eventRoutes);
 
-// Middleware
+// CORS Configuration
+const allowedOrigins = ["https://react-app-scheduling.vercel.app"];
+
 app.use(cors({
-    origin: "react-app-scheduling.vercel.app", // Change to your frontend URL
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
+
+// Handle Preflight Requests
+app.options('*', cors());
+
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
 
